@@ -1,0 +1,80 @@
+{
+  "decks": [
+    {
+      "name": "base",
+      "cards": [
+        {
+          "name": "Elven Archers",
+          "suit": "army",
+          "strength": 10,
+          "bonus": {
+            "value": 5,
+            "condition": {
+              "type": "WITH",
+              "condition": {
+                "type": "NOT",
+                "condition": {
+                  "type": "SUIT",
+                  "value": "weather"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Elven Longbow",
+          "suit": "weapon",
+          "strength": 3,
+          "bonus": {
+            "value": 30,
+            "condition": {
+              "type": "WITH",
+              "condition": {
+                "type": "OR",
+                "conditions": [
+                  {
+                    "type": "CARD",
+                    "value": "Elven Archers"
+                  },
+                  {
+                    "type": "CARD",
+                    "value": "Warlord"
+                  },
+                  {
+                    "type": "CARD",
+                    "value": "Beastmaster"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name": "Empress",
+          "suit": "leader",
+          "strength": 15,
+          "bonus": {
+            "value": 10,
+            "condition": {
+              "type": "FOREACH",
+              "condition": {
+                "type": "SUIT",
+                "value": "army"
+              }
+            }
+          },
+          "penalty": {
+            "value": 5,
+            "condition": {
+              "type": "FOREACH",
+              "condition": {
+                "type": "SUIT",
+                "value": "leader"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
